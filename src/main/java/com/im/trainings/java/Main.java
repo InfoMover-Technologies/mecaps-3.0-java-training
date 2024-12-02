@@ -1,6 +1,7 @@
 package com.im.trainings.java;
 
 import com.im.trainings.java.model.Customer;
+import com.im.trainings.java.model.CustomerFactory;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -23,11 +24,29 @@ public class Main {
 
         System.out.println("name 1 == name2 : " + (name1.equals(name2)));
 
-        Customer c1 = new Customer();
-        Customer c2 = new Customer();
+        /**
+         * Client class must be dependent on abstraction not on implementation
+         */
+
+        Customer c1 = CustomerFactory.newCustomer("E");
+        Customer c2 = CustomerFactory.newCustomer("L");
+        Customer c3 = CustomerFactory.newCustomer("E");
+
+        c3.setId(102);
+        c3.setName("Wipro");
 
         c1.setId(101);
         c2.setId(101);
+        c1.printCustomerDetails();
+        c2.printCustomerDetails();
+
+
+//        c1.setCustomerType("E");
+//        c2.setCustomerType("L");
+
+        c1.generateCreditBalance();
+        c2.generateCreditBalance();
+
 
         c1.setName("JPMC");
 
@@ -54,15 +73,13 @@ public class Main {
 //        HashSet<Customer> customers = new HashSet<>();
         TreeSet<Customer> customers = new TreeSet<>();
 
+
         customers.add(c1);
         customers.add(c2);
 
         System.out.println(customers);
 
-        Customer c3 = new Customer();
 
-        c3.setId(102);
-        c3.setName("Wipro");
 
         customers.add(c3);
 

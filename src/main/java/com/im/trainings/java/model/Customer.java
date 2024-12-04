@@ -3,6 +3,10 @@ package com.im.trainings.java.model;
 
 import lombok.Data;
 
+
+/**
+ * Customer defines the lineage
+ */
 @Data
 public abstract class  Customer implements Comparable<Customer> {
 
@@ -15,6 +19,8 @@ public abstract class  Customer implements Comparable<Customer> {
     public void printCustomerDetails() {
         System.out.println("Id : " + this.id + " -- name : " + this.name + " -- " + this.getClass().getName());
     }
+
+
 
 
     /**

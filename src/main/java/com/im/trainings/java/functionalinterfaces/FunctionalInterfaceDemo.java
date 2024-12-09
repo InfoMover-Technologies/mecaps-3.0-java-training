@@ -70,7 +70,10 @@ public class FunctionalInterfaceDemo {
         };
         TaxCalculator taxCalculator2 = state -> state.equals("MP") ? 15 : 10;
 
-        java.util.function.Function<String, Integer> f1 = x -> x.length();
+//        java.util.function.Function<String, Integer> f1 = (String x) -> x.length();
+
+        // method reference
+        java.util.function.Function<String, Integer> f1 = String::length;
 
         java.util.function.Function<String, Customer> f2 = x -> new ExportCustomer();
 
@@ -87,7 +90,11 @@ public class FunctionalInterfaceDemo {
 
         java.util.function.Supplier<String> f8 = () -> "InfoMover";
 
-        java.util.function.Supplier<Customer> f9 = null;
+//        java.util.function.Supplier<Customer> f9 = () -> new ExportCustomer()
+
+        // constructor reference
+        java.util.function.Supplier<Customer> f9 = ExportCustomer::new;
+
 
 
     }

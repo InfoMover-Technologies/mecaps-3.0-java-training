@@ -108,6 +108,12 @@ public class CollectionsDemo {
 
         Optional<String> firstCity = employees
                 .stream()
+
+                .peek(emp -> {
+                    if (emp.getCity().equals("Bhopal")) {
+                        emp.setCity(emp.getCity() + " - M.P");
+                    }
+                })
                 .map(Employee::getCity)
 //                .collect(Collectors.toSet());
 //                .findFirst();
@@ -128,7 +134,6 @@ public class CollectionsDemo {
                 .anyMatch(city -> city.equals("Indore"));
         System.out.println(empInThisCity);
 //
-
 
 
 //        System.out.println(names.get(0));

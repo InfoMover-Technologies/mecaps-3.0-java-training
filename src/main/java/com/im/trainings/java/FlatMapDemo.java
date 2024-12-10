@@ -87,9 +87,7 @@ public class FlatMapDemo {
                 .flatMap(emp -> emp.getAddresses().stream())
                 .collect(Collectors.toSet());
 
-
-
-        empsFromMaharashtra.forEach(emp -> System.out.println(emp));
+        empsFromMaharashtra.forEach(System.out::println);
 
     }
 
